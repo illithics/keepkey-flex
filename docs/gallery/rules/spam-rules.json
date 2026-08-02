@@ -1,0 +1,120 @@
+{
+  "version": "1",
+  "updated": "2026-08-02",
+  "threshold": 4,
+  "rules": [
+    {
+      "code": "indexer-flag",
+      "weight": 6,
+      "predicate": "flaggedScam",
+      "why": "flagged as a scam by the block explorer"
+    },
+    {
+      "code": "anonymous-contract",
+      "weight": 4,
+      "predicate": "anonymousContract",
+      "why": "from an unnamed contract (no collection name or symbol)"
+    },
+    {
+      "code": "impersonation",
+      "weight": 5,
+      "predicate": "anonymousImpersonation",
+      "why": "anonymous contract impersonating a known project"
+    },
+    {
+      "code": "wrong-chain-brand",
+      "weight": 4,
+      "predicate": "wrongChainBrand",
+      "why": "claims an Ethereum-only collection but lives on another chain"
+    },
+    {
+      "code": "gibberish-collection",
+      "weight": 4,
+      "predicate": "gibberishCollection",
+      "why": "random-string collection name (throwaway contract)"
+    },
+    {
+      "code": "url-in-name",
+      "weight": 4,
+      "on": "both",
+      "unless": "domainCollection",
+      "pattern": "(https?:\\/\\/|www\\.)|\\b[a-z0-9][a-z0-9-]{1,}\\.[a-z]{2,6}\\b",
+      "why": "contains a web address"
+    },
+    {
+      "code": "url-in-description",
+      "weight": 3,
+      "on": "description",
+      "unless": "namedCollection",
+      "pattern": "(https?:\\/\\/|www\\.)",
+      "why": "unnamed contract with links in its description"
+    },
+    {
+      "code": "brand-bait",
+      "weight": 4,
+      "on": "both",
+      "pattern": "(?=.*(veefriends|boredape|bored ape|yuga|azuki|pudgy|doodles|moonbird|clonex|opensea|uniswap|shiba|pancakeswap|lido|st\\.?eth|laye?r ?zero|arbitrum|optimism|blur|metamask|ledger|trezor|coinbase|binance))(?=.*(coupon|voucher|ticket|pass\\b|prize|winner|you have won|\\bwon\\b|claim|reward|gift|airdrop|giveaway|eligible|redeem|bonus))",
+      "why": "impersonates a known project with a giveaway lure"
+    },
+    {
+      "code": "money-bait",
+      "weight": 4,
+      "on": "both",
+      "pattern": "(\\$\\s?\\d|\\d+\\s?(eth|usd|usdt|sol|matic)\\b|\\bfree\\b|claim|reward|voucher|giveaway|airdrop|earning|drop\\b)",
+      "why": "promises free money"
+    },
+    {
+      "code": "pass-bait",
+      "weight": 4,
+      "on": "both",
+      "pattern": "\\bnft\\s?(pass|drop|voucher|ticket|access|coupon|reward|gift)\\b|nftpass",
+      "why": "fake \"NFT pass/coupon\" bait"
+    },
+    {
+      "code": "amount-bait",
+      "weight": 4,
+      "on": "both",
+      "pattern": "(?=.*([$€]\\s?\\d{2,}|\\b\\d{2,}\\s?(usdt|usdc|eth|bnb|sol|matic)\\b))(?=.*(coupon|voucher|ticket|prize|winner|won|claim|reward|gift|airdrop|giveaway|eligible|redeem|bonus))",
+      "why": "names a cash amount next to a lure word"
+    },
+    {
+      "code": "instruction-bait",
+      "weight": 3,
+      "on": "both",
+      "pattern": "(scan (the |this )?qr|visit |go to |claim at|get a reward|open (the )?link)",
+      "why": "instructs you to visit or scan something"
+    },
+    {
+      "code": "range-bait",
+      "weight": 3,
+      "on": "both",
+      "pattern": "\\b\\d{3,}\\s*(to|-|–|→)\\s*\\d{3,}\\b",
+      "why": "promises a payout range"
+    },
+    {
+      "code": "urgency",
+      "weight": 2,
+      "on": "both",
+      "pattern": "(hurry|expire|last chance|act now|limited|winner|congratulation|\\bwin\\b)",
+      "why": "uses urgency language"
+    },
+    {
+      "code": "emoji-spam",
+      "weight": 2,
+      "predicate": "emojiSpam",
+      "why": "heavy emoji use"
+    },
+    {
+      "code": "no-image",
+      "weight": 1,
+      "predicate": "noImage",
+      "why": "has no artwork"
+    },
+    {
+      "code": "shouty",
+      "weight": 1,
+      "predicate": "shouty",
+      "why": "ALL CAPS name"
+    }
+  ]
+}
