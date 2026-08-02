@@ -1,5 +1,5 @@
 {
-  "version": "1",
+  "version": "2",
   "updated": "2026-08-02",
   "threshold": 4,
   "rules": [
@@ -32,6 +32,24 @@
       "weight": 4,
       "predicate": "gibberishCollection",
       "why": "random-string collection name (throwaway contract)"
+    },
+    {
+      "code": "degenerate-collection",
+      "weight": 4,
+      "predicate": "degenerateCollection",
+      "why": "collection has no real name (e.g. \"1\")"
+    },
+    {
+      "code": "duplicate-campaign",
+      "weight": 4,
+      "predicate": "duplicateAcrossContracts",
+      "why": "identical token minted from several different contracts"
+    },
+    {
+      "code": "generic-access-bait",
+      "weight": 2,
+      "predicate": "genericAccessBait",
+      "why": "vague \"exclusive access\" language"
     },
     {
       "code": "url-in-name",
