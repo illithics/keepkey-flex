@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  CSP: script-src 'self' means NO inline scripts and no third-party script can
+  ever run, even if injected markup lands in the DOM. connect-src allows the
+  Vault bridge (localhost), pendants (LAN http) and public RPC/indexer/IPFS
+  (https). ws/wss only for Vite dev HMR.
+-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src https: data:; connect-src https: http: ws: wss:; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<title>KeepKey NFT Gallery</title>
+  <script type="module" crossorigin src="./assets/index-BAxhz0nh.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B28CPPrH.css">
+</head>
+<body>
+<div id="app"></div>
+</body>
+</html>
